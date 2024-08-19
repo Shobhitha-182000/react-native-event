@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome'; // Import the icon library
 import Toast from 'react-native-toast-message';
 
- 
 const CustomButton = ({ title, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.button, { backgroundColor }]}>
     <Text style={[styles.buttonText, { color: textColor }]}>{title}</Text>
@@ -16,13 +16,12 @@ const Index = () => {
   const scaleAnim = useRef(new Animated.Value(0.9)).current;
 
   useEffect(() => {
- 
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 1500,
       useNativeDriver: true,
     }).start();
- 
+
     Animated.spring(scaleAnim, {
       toValue: 1,
       friction: 3,
@@ -32,6 +31,15 @@ const Index = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        {/* <Icon
+          name="bars"
+          size={24}
+          color="#000"
+          onPress={() => navigation.openDrawer()} // Open drawer on press
+        /> */}
+        <Text style={styles.headerTitle}>Welcome</Text>
+      </View>
       <Animated.View style={[styles.textContainer, { opacity: fadeAnim }]}>
         <Text style={styles.text}>Welcome</Text>
       </Animated.View>
@@ -40,14 +48,14 @@ const Index = () => {
           <CustomButton
             title="Login"
             onPress={() => navigation.navigate('Login')}
-            backgroundColor="#1E90FF"  
-            textColor="#FFFFFF" 
+            backgroundColor="#1E90FF"
+            textColor="#FFFFFF"
           />
           <CustomButton
             title="Signup"
             onPress={() => navigation.navigate('Signup')}
-            backgroundColor="#32CD32" 
-            textColor="#FFFFFF"  
+            backgroundColor="#32CD32"
+            textColor="#FFFFFF"
           />
         </View>
       </Animated.View>
@@ -61,7 +69,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5', // Light background color
+    backgroundColor: '#F5F5F5',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 40,
+    left: 20,
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginLeft: 10,
   },
   textContainer: {
     marginBottom: 30,
@@ -69,17 +89,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#333333', // Dark text color
-    shadowColor: '#000000', // Shadow color
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.3, // Shadow opacity
-    shadowRadius: 4, // Shadow radius
-    elevation: 5, // Android shadow
+    color: '#333333',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
   buttonContainer: {
-    flexDirection: 'row', // Align buttons in a row
-    justifyContent: 'center', // Center buttons horizontally
-    width: '80%', // Adjust width to fit the buttons
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '80%',
   },
   button: {
     flex: 1,
@@ -87,12 +107,12 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: 5, // Space between buttons
-    elevation: 5, // Shadow for Android
-    shadowColor: '#000', // Shadow color for iOS
-    shadowOffset: { width: 0, height: 4 }, // Shadow offset
-    shadowOpacity: 0.2, // Shadow opacity
-    shadowRadius: 10, // Shadow radius
+    marginHorizontal: 5,
+    elevation: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
   },
   buttonText: {
     fontSize: 18,
@@ -101,5 +121,3 @@ const styles = StyleSheet.create({
 });
 
 export default Index;
-
-

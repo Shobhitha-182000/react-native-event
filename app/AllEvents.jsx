@@ -35,23 +35,12 @@ const cardData = [
   },
 ];
 
-const Display = () => {
+const AllEvents = () => {
   const router = useRouter();  
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Icon
-          name="bars"
-          size={24}
-          color="#000"
-          onPress={() => {
-             
-            router.push('/DrawerNavigator');  
-          }}
-        />
-        <Text style={styles.title}>All Events</Text>
-      </View>
+      
       {cardData.map((card) => (
         <Card
           key={card.id}
@@ -85,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Display;
+export default AllEvents;
