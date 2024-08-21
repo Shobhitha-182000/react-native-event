@@ -36,11 +36,29 @@ const cardData = [
 ];
 
 const AllEvents = () => {
-  const router = useRouter();  
+  const router = useRouter();
+
+  const handleEdit = () => {
+    
+    router.push('/AddEventScreen')
+  
+  };
+
+  const handleDelete = (id) => {
+    console.log(`Delete event with id: ${id}`);
+   
+  };
+
+  const handleBook = () => {
+    router.push('/Profit')
+  };
 
   return (
     <ScrollView style={styles.container}>
+      <View style={styles.header}>
       
+        <Text style={styles.title}>All Events</Text>
+      </View>
       {cardData.map((card) => (
         <Card
           key={card.id}
@@ -48,6 +66,9 @@ const AllEvents = () => {
           description={card.description}
           location={card.location}
           imageSource={card.imageSource}
+          onEdit={() => handleEdit(card.id)}
+          onDelete={() => handleDelete(card.id)}
+          onBook={() => handleBook(card.id)}
         />
       ))}
     </ScrollView>
@@ -64,8 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
-    backgroundColor:'midlightblue',
-    
+    backgroundColor: 'midlightblue',
   },
   title: {
     fontSize: 24,

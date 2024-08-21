@@ -1,12 +1,19 @@
-// import React from 'react'
-// import { View } from 'react-native'
+// import { Stack } from 'expo-router';
 
-// const _layout = () => {
+// export default function RootLayout() {
 //   return (
-//    <Stack>
-
-//    </Stack>
-//   )
+//     <Stack
+//       screenOptions={{
+//         headerStyle: {
+//           backgroundColor: '#f4511e',
+//         },
+//         headerTintColor: '#fff',
+//         headerTitleStyle: {
+//           fontWeight: 'bold',
+//         },
+//       }}>
+//       <Stack.Screen name="index" />
+//       <Stack.Screen name="Login" />
+//     </Stack>
+//   );
 // }
-
-// export default _layout

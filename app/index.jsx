@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; // Import the icon library
 import Toast from 'react-native-toast-message';
 
 const CustomButton = ({ title, onPress, backgroundColor, textColor }) => (

@@ -37,7 +37,7 @@ const Login = () => {
             });
 
             setTimeout(() => {
-                navigation.navigate("Side"); // Adjust this route name as per your navigator configuration
+                navigation.navigate("Side"); 
             }, 2000);
         } catch (error) {
             console.error('Error logging in:', error);
@@ -74,11 +74,11 @@ const Login = () => {
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             <View style={styles.loginContainer}>
-                <Text style={styles.loginText}>
-                for Displaying Event </Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Display")}>
+                <Text style={styles.loginText1}>
+                for Displaying Event ? <TouchableOpacity onPress={() => navigation.navigate("Display")}>
                     <Text style={styles.link}>Click here</Text>
-                </TouchableOpacity>
+                </TouchableOpacity></Text>
+                
             </View>
             <Toast />
         </View>
@@ -120,6 +120,11 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#FFFFFF',
         fontSize: 18,
+        fontWeight: 'bold'
+    },
+    loginText1:{
+        color:"green",
+        fontSize: 12,
         fontWeight: 'bold'
     }
 });
